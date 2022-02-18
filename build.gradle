@@ -1,15 +1,21 @@
 // Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
 apply plugin: 'java'
+apply plugin: 'pmd'
 
 compileJava {
   sourceCompatibility '11'
   targetCompatibility '11'
-  options.encoding = 'UTF-8'
 }
 
 sourceSets {
   main.java.srcDirs 'src'
   test.java.srcDirs 'test'
+}
+
+pmd {
+    consoleOutput = true
+    toolVersion = "6.39.0"
+    ignoreFailures = true
 }
 
 repositories { mavenCentral() }
